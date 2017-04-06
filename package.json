@@ -1,17 +1,40 @@
 {
-    "buildNpmdoc":"bower-update",
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "buildNpmdoc": "bower-update",
+    "description": "api documentation for [bower-update (v0.2.0)](https://github.com/sapegin/bower-update) [![npm package](https://img.shields.io/npm/v/npmdoc-bower-update.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-bower-update) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-bower-update.svg)](https://travis-ci.org/npmdoc/node-npmdoc-bower-update)",
     "devDependencies": {
         "bower-update": "*",
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
         "utility2": "kaizhu256/node-utility2#alpha"
     },
-    "name":"npmdoc-bower-update",
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmdoc/node-npmdoc-bower-update",
+    "keywords": [
+        "documentation",
+        "bower-update"
+    ],
+    "license": "MIT",
+    "main": "lib.npmdoc_bower_update.js",
+    "name": "npmdoc-bower-update",
+    "nameAlias": "npmdoc_bower_update",
+    "nameOriginal": "npmdoc-bower-update",
+    "os": [
+        "darwin",
+        "linux"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/npmdoc/node-npmdoc-bower-update"
     },
     "scripts": {
-        "build-ci": "utility2 shReadmeTest build_ci.sh"
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "(set -e; npm install \"kaizhu256/node-utility2#alpha\"; utility2 shDeployHeroku)",
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
     "version": "0.0.1"
 }
