@@ -61,12 +61,94 @@
 
     <li class="apidocModuleLi"><a href="#apidoc.module.bower-update">module bower-update</a><ol>
 
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bower-update.bower-update">
+            function <span class="apidocSignatureSpan"></span>bower-update
+            <span class="apidocSignatureSpan">(options, allDone)</span>
+            </a>
+
+        </li>
+
     </ol></li>
 
 </ol></div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.bower-update" id="apidoc.module.bower-update">module bower-update</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.bower-update.bower-update" id="apidoc.element.bower-update.bower-update">
+        function <span class="apidocSignatureSpan"></span>bower-update
+        <span class="apidocSignatureSpan">(options, allDone)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">bower-update = function (options, allDone) {
+
+	var bowerConfig = {
+		cwd: options.cwd
+	};
+
+	var getComponents = function(done) {
+		bower.commands.list({
+			map: true
+		}, bowerConfig)
+			.on(&#x27;error&#x27;, allDone)
+			.on(&#x27;end&#x27;, done.bind(null, null))
+		;
+	};
+
+	var updateComponents = function(data, done) {
+		var components = _.values(data.dependencies);
+		components = _.filter(components, isUpdateAvailable);
+		if (!components.length) {
+			done(null, []);
+			return;
+		}
+
+		var endpoints = _.map(components, function(component) { return component.endpoint.name; });
+		bower.commands.install(endpoints, {save: true, forceLatest: true}, bowerConfig)
+			.on(&#x27;end&#x27;, function(installed) {
+				var updated = [];
+				_.each(installed, function(component) {
+					var name = component.endpoint.name;
+					var meta = data.dependencies[name];
+					if (meta) {
+						updated.push({
+							name: name,
+							now: meta.update.latest,
+							then: meta.update.target
+						});
+					}
+				});
+				done(null, updated);
+			})
+		;
+	};
+
+	var isUpdateAvailable = function(component) {
+		if (!component.update || component.update.target === component.update.latest) return false;
+		if (options.interactive) {
+			console.log(component.endpoint.name + &#x27;: &#x27; +  chalk.red(component.update.target) + &#x27; → &#x27; + chalk.green(component.update.latest
+));
+			var answer = readlineSync.question(&#x27;Update? (Y/n)&#x27;).toLowerCase() !== &#x27;n&#x27;;
+			console.log(answer ? &#x27;Updated.\n&#x27; : &#x27;Skipped.\n&#x27;);
+			return answer;
+		}
+		return true;
+	};
+
+	async.waterfall([
+		getComponents,
+		updateComponents
+	], allDone);
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 </div>
 
