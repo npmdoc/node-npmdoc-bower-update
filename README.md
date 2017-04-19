@@ -1,9 +1,14 @@
-# api documentation for  [bower-update (v0.2.0)](https://github.com/sapegin/bower-update)  [![npm package](https://img.shields.io/npm/v/npmdoc-bower-update.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-bower-update) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-bower-update.svg)](https://travis-ci.org/npmdoc/node-npmdoc-bower-update)
+# npmdoc-bower-update
+
+#### api documentation for  [bower-update (v0.2.0)](https://github.com/sapegin/bower-update)  [![npm package](https://img.shields.io/npm/v/npmdoc-bower-update.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-bower-update) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-bower-update.svg)](https://travis-ci.org/npmdoc/node-npmdoc-bower-update)
+
 #### Updates Bower components to the really latest versions.
 
-[![NPM](https://nodei.co/npm/bower-update.png?downloads=true)](https://www.npmjs.com/package/bower-update)
+[![NPM](https://nodei.co/npm/bower-update.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/bower-update)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-bower-update/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-bower-update_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-bower-update/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-bower-update/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-bower-update/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-bower-update/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-bower-update/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-bower-update/build/screenCapture.npmPackageListing.svg)
 
@@ -65,14 +70,12 @@
     "main": "index.js",
     "maintainers": [
         {
-            "name": "sapegin",
-            "email": "artem@sapegin.ru"
+            "name": "sapegin"
         }
     ],
     "name": "bower-update",
     "optionalDependencies": {},
     "preferGlobal": true,
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git://github.com/sapegin/bower-update.git"
@@ -87,16 +90,6 @@
     "version": "0.2.0"
 }
 ```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module bower-update](#apidoc.module.bower-update)
-
-
-
-# <a name="apidoc.module.bower-update"></a>[module bower-update](#apidoc.module.bower-update)
 
 
 
